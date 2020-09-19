@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  color: #444444;
+  font-size: 1.5rem;
+  background: #232427;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.header {
+  font-size: 7rem;
+  text-align: center;
+  color: lighten($color: #000000, $amount: 90);
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  height: 100%;
+
+  .footer {
+    text-align: center;
+    color: lighten($color: #000000, $amount: 90);
+    background-color: lighten($color: #000000, $amount: 20);
+    padding: 2rem;
+    font-size: 2rem;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+     -5px -5px 15px rgba(225, 225, 225, 0.104);
+
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+
+  .card {
+    position: relative;
+    min-width: 320px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(225, 225, 225, 0.1),
+     5px 5px 15px rgba(0, 0, 0, 0.3),
+     -5px -5px 15px rgba(225, 225, 225, 0.3);
+     border-radius: 15px;
+     margin: 30px;
+  }
+
+
+
+  .box {
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    background: #2a2b2f;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba($color: #000000, $alpha: .5);
+    transition: .5s;
+    
+    &:hover, &:active {
+      transform: translateY(-25px);
+      cursor: pointer;
+      box-shadow: 0 40px 70px rgba($color: #000000, $alpha: .5);
+    }
+  }
+
+  .content {
+    color: rgba($color: #ffffff, $alpha: .5);
+    transition: 0.5s;
+    padding: 2rem;
+    z-index: 1;
+    vertical-align: middle;
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    height: 100%;
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__footer {
+      margin-top: 1rem;
+    }
+    
+    h1 {
+      position: absolute;
+      top:-10px;
+      right: 30px;
+      font-size: 10rem;
+      color: rgba($color: #ffffff, $alpha: .05);
+    }
+    
+    .name {
+      font-size: 2.8rem;
+      margin: 0;
+    }
+    
+    .nickname {
+      font-size: 2rem;
+      margin-top: 0;
+    }
+    h5 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    p {
+      font-size: 1.6rem;
+      color: rgba($color: #ffffff, $alpha: .5);
+      transition: 0.5s;
+      margin: 0;
+      z-index: 1;
+    }
+  }
+}
+
+
+
+@media (max-width: 600px) {
+    html {
+      font-size: 55%;
+    }
+}
+
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.icons {
+  height: 45px;
+  width: 45px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba($color: #ffffff, $alpha: .05);
+  transition: .5s;
+  
+  &:hover, &:active {
+    background-color: #000000;
+  }
+}
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+  
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+
+}
+
+// Link in footer
+
+.me {
+  font-family: 'Raleway', sans-serif;
+}
